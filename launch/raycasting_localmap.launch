@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <launch>
-    <node name="raycasting_localmap" pkg="raycasting" type="raycasting_localmap" output="screen">
-	    <param name="range_size" value="720.0"/>
-	    <param name="scan_frame" value="laser"/>
-		<param name="scan_angel_min" value="-M_PI/2.0"/>
-		<param name="scan_angel_max" value="M_PI/2.0"/>
-	    <param name="scan_time" value="0.025"/>
-	    <param name="scan_range_min" value="0.10"/>
-	    <param name="scan_range_max" value="10.0"/>
-	</node>
-	
+
+  <node name="raycasting_localmap" pkg="raycasting" type="raycasting_localmap" output="screen">
+    <param name="range_size" value="720.0"/>
+    <param name="scan_frame" value="base_link"/>
+    <param name="scan_angle_min" value="-1.5707963267948966"/>
+    <param name="scan_angle_max" value="1.5707963267948966"/>
+    <param name="scan_time" value="0.025"/>
+    <param name="scan_range_min" value="0.10"/>
+    <param name="scan_range_max" value="10.0"/>
+    <remap from="/local_map" to="/local_costmap"/>
+    <remap from="/laser" to="/laser"/>
+  </node>
+
 </launch>
